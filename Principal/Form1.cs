@@ -48,14 +48,13 @@ namespace Principal
             int y = (validacion(recta2c));
 
             string xd = x.ToString();
-            MessageBox.Show(xd);
-            MessageBox.Show(y.ToString());
+            
             //ACA IRIAN LOS CASOS Y LUEGO SACAREMOS LOS VALORES DE LAS TUPLAS Y LOS OPERAREMOS
 
 
             //Ahora queremos crear un condicional que ayude a validar si las dos rectas son del mismo tipo,en caso de no serlo indicarle que el formato es invalido
 
-            if ((x==1 || x==2|| x==3 || x == 4 || x==5 || x==12|| x==11) && (y==1 || y==2 || y==3 || y==4 || y==5 ||y==11 || y==12))      //Solo se pueden usar los valores (pendiente,b, , )
+            if ((x==1 || x==2|| x==3 || x == 4 || x==5 || x==12 ) && (y==1 || y==2 || y==3 || y==4 || y==5|| y==12))      //Solo se pueden usar los valores (pendiente,b, , )
             {
                 //Codigo para operar si los dos son y=mx+b
                 MessageBox.Show("y=mx+b");
@@ -63,8 +62,8 @@ namespace Principal
                 var r2valor = valores(recta2c);            
                 float pendiente1 = r1valor.Item1;
                 float pendiente2 = r2valor.Item1;
-                MessageBox.Show(pendiente1.ToString());
-                MessageBox.Show(pendiente2.ToString());
+               // MessageBox.Show(pendiente1.ToString());
+               // MessageBox.Show(pendiente2.ToString());
 
 
 
@@ -80,21 +79,56 @@ namespace Principal
                     }
                     else        //Ya que no es perpendicular no tampoco paralela entonces sabemos que se corta en un punto
                     {
+                        float b1 = r1valor.Item2;
+                        float b2 = r2valor.Item2;
 
+                        float X = (b2-b1/(pendiente1 - pendiente2));        //Este tiene que ser el valor de La coordenada en x de la interseccion
+                        float Y = pendiente1 * X + b1;
+                        MessageBox.Show("Las coordenadas de la interseccion son :" + X + " y " + Y);
                     }
                 }
             }
             else
             {
-                if ((x == 3 || x == 6 || x == 7 || x == 8 || x == 9) && (y == 3 || y == 6 || y == 7 || y == 8 || y == 9))
+                if ((x == 3 || x == 6 || x == 7 || x == 8 || x == 9 || x==13) && (y == 3 || y == 6 || y == 7 || y == 8 || y == 9 || y==13))
                 {
                     //Codigo en caso de que la notacion sea y-y1=m(x-x1)
                     MessageBox.Show("y-y1=m(x-x1)");
 
+                    //b=x1m+y1
+                    var r1valor = valores(recta1c);
+                    var r2valor = valores(recta2c);
+                    float pendiente1 = r1valor.Item1;
+                    float pendiente2 = r2valor.Item1;
+                    
 
+                    //Multipliar el xo por -1
+                    if (pendiente1 == pendiente2)
+                    {
+                        MessageBox.Show("Las rectas son paralelas");
+                    }
+                    else
+                    {
+                        if (pendiente1 * pendiente2 == -1)
+                        {
+                            MessageBox.Show("Las rectas son perpendiculares");
+                        }
+                        else        //Ya que no es perpendicular no tampoco paralela entonces sabemos que se corta en un punto
+                        {
+                            float x1 = r1valor.Item3;
+                            float y1 = r1valor.Item4;
 
+                            float x2 = r2valor.Item3;
+                            float y2 = r2valor.Item4;
 
+                            float b1 = pendiente1 * x1 + y1;
+                            float b2 = pendiente2 * x2 + y2;
 
+                            float X = (b2 - b1 / (pendiente1 - pendiente2));        //Este tiene que ser el valor de La coordenada en x de la interseccion
+                            float Y = pendiente1 * X + b1;
+                            MessageBox.Show("Las coordenadas de la interseccion son :" + X + " y " + Y);
+                        }
+                    }
                 }
                 else   //Caso en que escribio de manera incorrecta la notacion
                 {                  
@@ -119,11 +153,11 @@ namespace Principal
 
         public int validacion(String cadena)
         {
-         //   string patron1 = @"^y=(\d+)x\+(\d+)$";      //abarca el caso ideal que seria y=mx+b))
-           // if (Regex.IsMatch(cadena, patron1))
-           //{
-             //   return 1;
-//            }
+            //   string patron1 = @"^y=(\d+)x\+(\d+)$";      //abarca el caso ideal que seria y=mx+b))
+            // if (Regex.IsMatch(cadena, patron1))
+            //{
+            //   return 1;
+            //            }
 
             if (cadena == "y =x" || cadena == "x=y")                //Abarca el caso x=y
             {
@@ -139,7 +173,7 @@ namespace Principal
             {
                 return 10;
             }
-                String patron2 = @"^y=(-?\d+(\.\d+)?)$";  //abarca y = cualquier numero   //abarca el caso y=(cualquier numero)
+            String patron2 = @"^y=(-?\d+(\.\d+)?)$";  //abarca y = cualquier numero   //abarca el caso y=(cualquier numero)
             if (Regex.IsMatch(cadena, patron2))
             {
                 return 4;
@@ -154,7 +188,7 @@ namespace Principal
             {
                 return 8;
             }
-            string patron5 = @"^y-(-?\d+(\.\d+)?) = 0$";        //Abarca el caso y-(cualquier numero=0
+            string patron5 = @"^y-(-?\d+(\.\d+)?)=0$";        //Abarca el caso y-(cualquier numero=0
             if (Regex.IsMatch(cadena, patron5))
             {
                 return 7;
@@ -175,15 +209,16 @@ namespace Principal
             {
                 return 12;
             }
-             
-             string patron9 = @"^y-(-?\d+(\.\d+)?)=m\(x-(-?\d+(\.\d+)?)\)$";
-            if (Regex.IsMatch(cadena,patron9))
+
+            string patron9 = @"^y-(-?\d+(\.\d+)?)=(-?\d+(\.\d+)?)\(x-(-?\d+(\.\d+)?)\)$";
+            if (Regex.IsMatch(cadena, patron9))
             {
                 return 13;
             }
+           
             else
             {
-                return 11;  //Si retorna 10 significa que esta mal escrito
+                return 11;  //Si retorna 11 significa que esta mal escrito
             }
         }//Fin funcion
 
@@ -231,7 +266,9 @@ namespace Principal
                     return (m1, 0, 0, 0);
 
                 case 6:
-                    string x11 = sacarString(cadena, "-", ")"); //saca x1              
+                    int posiciontemp = (cadena.IndexOf("x")+1);
+                    string x11 = cadena.Substring(posiciontemp+1,(cadena.IndexOf("("))-2);
+                   // string x11 = sacarString(cadena, "x", ")"); //saca x1              
                     float x1 = float.Parse(x11);
                     string y11 = sacarString(cadena, "-", "="); //Saca y1 
                     float y1 = float.Parse(y11);
@@ -265,7 +302,14 @@ namespace Principal
 
                case 12:
                     m11 = sacarString(cadena, "=", "x");
-                    b11 = StringHastaFin(cadena, "+");
+                    if (cadena.IndexOf("+") == -1)
+                    {
+                        b11 = StringHastaFin(cadena,"-");
+                    }
+                    else
+                    {
+                        b11 = StringHastaFin(cadena,"+");
+                    }
                     m1 = float.Parse(m11);
                     b1 = float.Parse(b11);
                     return (m1, b1, 0, 0);
@@ -281,46 +325,9 @@ namespace Principal
                 default:
                     MessageBox.Show("los valores de la recta no son correctos");
                     return (0,0, 0, 0);                   
+           
+            
             }   //fin funcion
-            bool ExtraerValores(string cadena, out double m, out double b)
-            {
-            m = 0;
-            b = 0;
-            cadena = cadena.ToLower().Replace(" ", "");
-
-
-            Match matchGeneral = Regex.Match(cadena, @"y=(-?\d*\.?\d*)x([+\-]\d*\.?\d*)?$");
-            Match matchPuntoPendiente = Regex.Match(cadena, @"y([+\-]\d*\.?\d*)=(-?\d*\.?\d*)\(x([+\-]\d*\.?\d*)\)$");
-
-            if (matchGeneral.Success)
-            {
-                m = double.Parse(matchGeneral.Groups[1].Value);
-                b = matchGeneral.Groups[2].Success ? double.Parse(matchGeneral.Groups[2].Value) : 0;
-                return true;
-            }
-            else if (matchPuntoPendiente.Success)
-            {
-                double y1 = double.Parse(matchPuntoPendiente.Groups[1].Value);
-                m = double.Parse(matchPuntoPendiente.Groups[2].Value);
-                double x1 = double.Parse(matchPuntoPendiente.Groups[3].Value);
-                b = y1 - m * x1;
-                return true;
-            }
-
-            return false;
-            }
-            bool validar(string funcion)
-            {
-            funcion = funcion.Replace(" ", "");
-            string patron1 = @"^y=(-?\d*\.?\d*)x([+\-]\d*)?$";
-            string patron2 = @"^y([+\-]\d*\.?\d*)=(-?\d*\.?\d*)\(x([+\-]\d*\.?\d*)\)$";
-
-            Regex regex1 = new Regex(patron1, RegexOptions.IgnoreCase);
-            Regex regex2 = new Regex(patron2, RegexOptions.IgnoreCase);
-
-            return regex1.IsMatch(funcion) || regex2.IsMatch(funcion);
-              }
-
 
 
     } //fin del semi main

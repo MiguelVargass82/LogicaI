@@ -8,3 +8,13 @@ C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.csproj.Gener
 C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.csproj.CoreCompileInputs.cache
 C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.exe
 C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.pdb
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\bin\Debug\Principal.exe.config
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\bin\Debug\Principal.exe
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\bin\Debug\Principal.pdb
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.csproj.AssemblyReference.cache
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.Form1.resources
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.Properties.Resources.resources
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.csproj.GenerateResource.cache
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.csproj.CoreCompileInputs.cache
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.exe
+C:\Users\migue\OneDrive\Escritorio\UdeA\3er Semestre\Logica I\Repositorios\LogicaI\Principal\obj\Debug\Principal.pdb
