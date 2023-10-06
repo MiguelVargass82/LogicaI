@@ -1,0 +1,10 @@
+C:\Users\migue\source\repos\Principal\Principal\bin\Debug\Principal.exe.config
+C:\Users\migue\source\repos\Principal\Principal\bin\Debug\Principal.exe
+C:\Users\migue\source\repos\Principal\Principal\bin\Debug\Principal.pdb
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.csproj.AssemblyReference.cache
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.Form1.resources
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.Properties.Resources.resources
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.csproj.GenerateResource.cache
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.csproj.CoreCompileInputs.cache
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.exe
+C:\Users\migue\source\repos\Principal\Principal\obj\Debug\Principal.pdb
